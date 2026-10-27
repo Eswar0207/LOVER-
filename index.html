@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>For You • NAA GAAJU BOOMAAA</title>
+  
+  <!-- Premium Romantic Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700;900&family=Dancing+Script:wght@600;700&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient floating particles & bokeh lights -->
+  <div id="ambient-canvas-container" aria-hidden="true">
+    <canvas id="ambientCanvas"></canvas>
+  </div>
+  <div id="dust" aria-hidden="true"></div>
+
+  <!-- Ambient Audio Player Bar (Floating) -->
+  <div class="audio-widget" id="audioWidget" title="Romantic Ambience">
+    <button class="music-toggle" id="muteBtn" aria-label="Toggle Romantic Music">
+      <span class="music-icon">♥</span>
+      <div class="sound-wave" id="soundWave">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </button>
+    <div class="audio-info">
+      <span class="track-title" id="trackTitle">Gaaju Bomma</span>
+      <span class="track-artist">Naa Gaaju Bomma • On Loop</span>
+    </div>
+  </div>
+
+  <!-- Top Navigation (Start Over) -->
+  <div class="top-nav">
+    <button id="backBtn" class="nav-pill" hidden>
+      <span class="icon">↺</span> Start Over
+    </button>
+  </div>
+
+  <!-- ==============================================
+       SCENE 1: The Magic 3D Gift Box
+       ============================================== -->
+  <section class="scene active" id="s1">
+    <div class="gift-scene-container">
+      <div class="romance-tag">
+        <span class="sparkle-star">✦</span> A Special Surprise Just For You <span class="sparkle-star">✦</span>
+      </div>
+      
+      <!-- Authentic Romantic Gift Box -->
+      <div class="gift-box-wrapper" id="giftBtn" role="button" tabindex="0" aria-label="Tap to open your romantic gift">
+        <div class="gift-aura"></div>
+        <div class="gift-img-wrap">
+          <img src="assets/giftbox.png" alt="Romantic Gift Box" class="gift-box-img">
+          <div class="gift-tag-floating">
+            <span>For My Naa Gaaju Boomaaa ♥</span>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="script title-glow">For you, my baby.</h1>
+      <p class="pulse-subtle hint-label">
+        <span class="tap-heart">♥</span> (Tap to open with love) <span class="tap-heart">♥</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SCENE 2: The Magnificent Blooming Flower Curtain Wall
+       (Real blooming roses cascade matching reference video)
+       ============================================== -->
+  <div id="curtain" class="bloom-field" aria-hidden="true"></div>
+
+  <!-- ==============================================
+       SCENE 3: The Secret Vault & Love Quote
+       ============================================== -->
+  <section class="scene" id="s3">
+    <div class="vault-container">
+      <div class="rose-corner-deco">
+        <img src="assets/photos/rose.png" alt="" draggable="false">
+      </div>
+
+      <div class="vault-header">
+        <span class="kicker">Forever & Always</span>
+        <h2 class="display-serif gold-shimmer">From Me To You</h2>
+        <p class="sub-romantic">This is how much I love you.</p>
+      </div>
+
+      <!-- Romantic Couple Art -->
+      <div class="couple-badge">
+        <div class="glow-ring"></div>
+        <svg class="couple-art" viewBox="0 0 160 110" width="160" height="110" aria-hidden="true">
+          <defs>
+            <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF8DA1"/>
+              <stop offset="100%" stop-color="#C0394B"/>
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFE6A3"/>
+              <stop offset="100%" stop-color="#D4AF37"/>
+            </linearGradient>
+          </defs>
+          <circle cx="58" cy="30" r="16" fill="#FCE4D6"/>
+          <path d="M42 26 Q58 4 74 26 Q58 16 42 26Z" fill="#7C2D37"/>
+          <rect x="40" y="48" width="36" height="52" rx="16" fill="url(#roseGrad)"/>
+          <circle cx="104" cy="32" r="16" fill="#FCE4D6"/>
+          <path d="M88 30 Q104 8 120 30 Q104 20 88 30Z" fill="#3D2B27"/>
+          <rect x="86" y="50" width="36" height="50" rx="16" fill="#6B8E73"/>
+          <path d="M81 20 c-6-9 -17 0 -8 8 l8 8 l8-8 c9-8 -2-17 -8-8z" fill="url(#goldGrad)" transform="translate(0 -8) scale(1.1) translate(4 0)"/>
+        </svg>
+      </div>
+
+      <!-- Glassmorphic Love Quote Card -->
+      <blockquote class="glass-card quote-box">
+        <span class="quote-mark">“</span>
+        <p class="quote-text">
+          In your <b class="highlight-sage">smile</b>, I found my <b class="highlight-rose">peace</b>.<br>
+          In your <b class="highlight-rose">love</b>, I found my <b class="highlight-gold">home</b>.
+        </p>
+        <span class="quote-author" id="quoteAuthor">— Yours for eternity, Your Forever</span>
+      </blockquote>
+
+      <!-- Golden Heart Lock Button -->
+      <div class="lock-wrapper">
+        <button class="lock-btn" id="lockBtn" aria-label="Unlock the secret memories with passkey">
+          <div class="lock-halo"></div>
+          <img src="assets/photos/locked.png" alt="Golden Lock" class="authentic-lock-img">
+        </button>
+        <p class="pulse-subtle hint-label">(Tap the Golden Lock to Enter)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SCENE 4: Secret Passkey Keypad Modal
+       ============================================== -->
+  <div id="modal" class="modal-backdrop" hidden>
+    <div class="glass-card pad-card" id="pad" role="dialog" aria-modal="true" aria-labelledby="padTitle">
+      <button class="modal-close" id="closeBtn" aria-label="Close passkey dialog">×</button>
+      
+      <div class="pad-heart-icon">♥</div>
+      <h3 class="display-serif pad-title" id="padTitle">Our Secret Passkey</h3>
+      <p class="pad-sub">Enter the 4-digit code to unlock our memories</p>
+      
+      <div class="pass-dots" id="dots">
+        <div class="dot-slot"><i></i></div>
+        <div class="dot-slot"><i></i></div>
+        <div class="dot-slot"><i></i></div>
+        <div class="dot-slot"><i></i></div>
+      </div>
+      
+      <div class="keys-grid" id="keys"></div>
+      
+      <div class="pad-hint-row">
+        <button type="button" class="hint-pill-btn" id="hintPillBtn">
+          <span>💡 Code Hint: 7777</span>
+          <span class="quick-unlock">(Tap to auto-fill)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       SCENE 5: Constellation Rose Ring Loader
+       ============================================== -->
+  <section class="scene" id="s5">
+    <div class="loader-container">
+      <div class="ring-glow"></div>
+      <div class="ring" id="ring"></div>
+      <div class="center-heart-pulse">♥</div>
+      <h3 class="display-serif loader-status" id="loadTxt">UNLOCKING OUR MEMORIES</h3>
+      <p class="loader-quote" id="loadQuote">Gathering every smile you've given me...</p>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SCENE 6: The Grand Romantic Scrapbook (Photos & Letter)
+       ============================================== -->
+  <section class="scene scroll-scene" id="s6">
+    <div class="scrapbook-wrapper">
+
+      <!-- Romantic Header Banner -->
+      <header class="scrapbook-hero">
+        <div class="romantic-crown">❦ ❧</div>
+        <h1 class="display-serif hero-title gold-shimmer" id="heroPartnerTitle">OUR LOVE STORY • NAA GAAJU BOOMAAA</h1>
+        <p class="script hero-subtitle">"You are my today, my tomorrow, and all of my forevers."</p>
+
+        <!-- Live Love Journey Counter & Heartbeat Capsule -->
+        <div class="love-counter-box glass-card" id="counterBox">
+          <div class="counter-header">
+            <span class="heart-tick">♥</span>
+            <span class="counter-label">TIME WE'VE BEEN IN LOVE</span>
+            <span class="heart-tick">♥</span>
+          </div>
+          <div class="counter-units" id="counterUnits">
+            <div class="unit-cell"><span class="num" id="cntDays">0</span><span class="lbl">Days</span></div>
+            <div class="unit-sep">:</div>
+            <div class="unit-cell"><span class="num" id="cntHours">0</span><span class="lbl">Hours</span></div>
+            <div class="unit-sep">:</div>
+            <div class="unit-cell"><span class="num" id="cntMins">0</span><span class="lbl">Minutes</span></div>
+            <div class="unit-sep">:</div>
+            <div class="unit-cell"><span class="num" id="cntSecs">0</span><span class="lbl">Seconds</span></div>
+          </div>
+          
+          <div class="heartbeats-counter-row">
+            <span class="hb-icon pulse">💓</span>
+            <span class="hb-text">Approximately <b id="cntHeartbeats">0</b> heartbeats of mine beating solely for you</span>
+          </div>
+
+          <p class="counter-footer" id="counterDateFooter">Falling deeper in love since October 20, 2026.</p>
+        </div>
+      </header>
+
+      <!-- Polaroid Wall of All 24 Girlfriend Photos -->
+      <section class="photos-section">
+        <div class="section-title-wrap">
+          <h2 class="display-serif section-title">Memories We Cherish</h2>
+          <p class="section-sub">Hover to touch, click to expand our love story</p>
+        </div>
+
+        <div class="wall" id="wall">
+          <!-- Dynamically populated Polaroids of all 24 photos -->
+        </div>
+      </section>
+
+      <!-- Six Eternal Promises (Happy Tears Section) -->
+      <section class="promises-section">
+        <div class="section-title-wrap">
+          <h2 class="display-serif section-title">Six Promises From My Heart</h2>
+          <p class="section-sub">Vows I will honor for the rest of my days</p>
+        </div>
+        <div class="promises-grid">
+          <div class="promise-card glass-card">
+            <span class="promise-num">I</span>
+            <p class="promise-text">I promise to choose you, every single day, without hesitation, doubt, or pause.</p>
+          </div>
+          <div class="promise-card glass-card">
+            <span class="promise-num">II</span>
+            <p class="promise-text">I promise to hold your hand through every mountain we climb and every storm we face.</p>
+          </div>
+          <div class="promise-card glass-card">
+            <span class="promise-num">III</span>
+            <p class="promise-text">I promise to protect your pure, beautiful smile and never let you feel alone in this world.</p>
+          </div>
+          <div class="promise-card glass-card">
+            <span class="promise-num">IV</span>
+            <p class="promise-text">I promise to listen to you, understand your gentle heart, and always be your safest haven.</p>
+          </div>
+          <div class="promise-card glass-card">
+            <span class="promise-num">V</span>
+            <p class="promise-text">I promise to celebrate you, admire you, and remind you every day how deeply you are loved.</p>
+          </div>
+          <div class="promise-card glass-card">
+            <span class="promise-num">VI</span>
+            <p class="promise-text">I promise that in this lifetime and every lifetime after, you will always be my only one.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Handwritten Love Letter with Wax Seal -->
+      <section class="letter-section">
+        <div class="section-title-wrap">
+          <h2 class="display-serif section-title">A Letter From My Soul</h2>
+          <p class="section-sub">Written with every ounce of my affection</p>
+        </div>
+
+        <article class="paper-envelope" id="paperEnvelope">
+          <div class="envelope-ribbon"></div>
+          
+          <!-- Wax Seal button -->
+          <div class="wax-seal-wrapper" id="waxSealWrapper">
+            <button class="wax-seal" id="waxSealBtn" aria-label="Break wax seal to read letter">
+              <span class="seal-inner">
+                <span class="seal-heart">♥</span>
+                <span class="seal-text">OPEN</span>
+              </span>
+            </button>
+            <span class="seal-hint" id="sealHint">Click to break wax seal</span>
+          </div>
+
+          <div class="paper" id="letterPaper">
+            <span class="tape t1"></span><span class="tape t2"></span>
+            <div class="letter-date" id="letterDate">October 20, 2026 & Forever</div>
+            <p class="hand" id="letter"></p>
+            <div class="letter-signature" id="letterSignature">
+              <p class="signoff-note">Always & Forever Yours,</p>
+              <p class="signoff-name" id="signoffName">FOREVER MY GAJJU BOMMAAAA ♥ ♾️</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Interactive Love Whispers Trigger Pill -->
+      <div class="whisper-trigger-wrap">
+        <button class="whisper-btn" id="whisperBtn">
+          <span class="wb-heart">💖</span>
+          <span class="wb-text">Tap here whenever you need a reminder of how much I love you</span>
+        </button>
+      </div>
+
+      <!-- Ending Signoff Footer -->
+      <footer class="scrapbook-footer">
+        <div class="footer-heart-ring">
+          <span class="footer-heart pulse">♥</span>
+        </div>
+        <p class="display-serif footer-title" id="footerTitle">FOREVER MY GAJJU BOMMAAAA ♥ ♾️</p>
+        <p class="script footer-tagline">"Who am I without my gaaju bomma • Naa praanam nuvve"</p>
+        <div class="footer-badge-wrap">
+          <span class="footer-infinity-badge">FOREVER MY GAJJU BOMMAAAA ♥ ♾️</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       MODAL: Fullscreen Photo Lightbox
+       ============================================== -->
+  <div id="lightboxModal" class="modal-backdrop" hidden>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Close Lightbox">×</button>
+      <button class="lightbox-nav prev" id="lightboxPrevBtn" aria-label="Previous Photo">❮</button>
+      <button class="lightbox-nav next" id="lightboxNextBtn" aria-label="Next Photo">❯</button>
+      
+      <div class="lightbox-polaroid">
+        <div class="lightbox-img-wrapper">
+          <img id="lightboxImg" src="" alt="Lover Photo Fullscreen">
+        </div>
+        <div class="lightbox-caption-area">
+          <div class="lightbox-caption-top">
+            <h4 class="lightbox-title" id="lightboxTitle">Memories</h4>
+            <span class="lightbox-date" id="lightboxDate">Special Moment</span>
+          </div>
+          <p class="lightbox-caption" id="lightboxCaption">Love memory</p>
+          <div class="lightbox-actions">
+            <button class="like-photo-btn" id="lightboxLikeBtn">
+              <span class="heart-icon">♥</span> <span id="likeCountTxt">Loved</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Music Audio Element (Gaaju Bomma song in loop) -->
+  <audio id="bgm" loop preload="auto" src="assets/gaaju_bomma.mp3"></audio>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
